@@ -1,0 +1,49 @@
+@use "./functions" as f;
+
+$breakpoints: (
+  "sm": 576px,
+  "md": 768px,
+  "lg": 992px,
+  "xl": 1200px,
+  "xxl": 1440px,
+);
+
+$colors: (
+  "primary-color": #d5966c,
+  "black": #151515,
+  "grey": #444444,
+  "white": #ffffff,
+);
+
+$font-sizes: (
+  "hd-xl": f.to-rem(96),
+  "hd-l": f.to-rem(60),
+  "hd-m": f.to-rem(50),
+  "hd-s": f.to-rem(32),
+  "bd-m": f.to-rem(22),
+  "bd-s": f.to-rem(18),
+  "btn": f.to-rem(20),
+  
+);
+
+$fonts-weights: (
+  "light": 300,
+  "regular": 400,
+  "medium": 500,
+  "bold": 700,
+  "extrabold": 800,
+);
+
+/*tipography*/
+$hd-tpg: "Big Shoulders", sans-serif;
+$body-tpg: "Outfit", sans-serif;
+
+/*line-spacing*/
+$line-h: (
+  "hd-xl": f.to-rem(88),
+  "hd-l": f.to-rem(65),
+  "hd-m": f.to-rem(45),
+  "hd-s": f.to-rem(36),
+  "bd-m": f.to-rem(32),
+  "bd-s": f.to-rem(20)
+);

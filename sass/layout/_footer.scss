@@ -1,0 +1,72 @@
+@use "../abstracts/abstracts" as abs;
+@use "sass:map";
+
+footer {
+  background-color: map.get(abs.$colors, "black");
+  color: map.get(abs.$colors, "white");
+  padding: 20px 32px;
+  padding-bottom: 48px;
+  position: relative;
+  @include abs.bp("md") {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+  .mg__icon {
+    margin-top: 48px;
+    margin-bottom: 15px;
+    padding-left: 10px;
+    @include abs.bp("md") {
+      height: 40px;
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+  }
+  p {
+    font-family: abs.$body-tpg;
+    font-weight: map.get(abs.$fonts-weights, "light");
+    margin-bottom: 38px;
+    color: map.get(abs.$colors, "white");
+
+    @include abs.bp("md") {
+      width: 35%;
+      position: relative;
+      top: 45px;
+    }
+  }
+  .__media {
+    display: flex;
+    gap: 15px;
+
+    @include abs.bp("md") {
+      img {
+        width: 20px;
+      }
+    }
+  }
+}
+
+.footer-location {
+  background-color: map.get(abs.$colors, "primary-color");
+  color: map.get(abs.$colors, "black");
+
+  font-family: abs.$body-tpg;
+  @include abs.bp("md") {
+    display: flex;
+    align-items: center;
+  }
+
+  p {
+    max-width: 85%;
+    color: map.get(abs.$colors, "black");
+    @include abs.bp("md") {
+      max-width: 100%;
+      padding-right: 0;
+    }
+  }
+}
+.footer__media {
+  display: flex;
+  gap: 15px;
+}

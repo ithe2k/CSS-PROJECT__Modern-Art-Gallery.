@@ -1,0 +1,62 @@
+@use "../abstracts/abstracts" as abs;
+@use "sass:map";
+
+.__btn {
+  display: flex;
+  align-items: center;
+
+  .primary__button {
+    @include abs.btn-idle();
+
+    &:hover {
+      @include abs.btn-hover();
+      span {
+        background-color: map.get(abs.$colors, "black");
+      }
+    }
+  }
+}
+.path-arrow-1 {
+  font-size: 16px;
+  padding: 15px 20px;
+
+  background-color: map.get(abs.$colors, "primary-color");
+
+  &:hover {
+    background-color: map.get(abs.$colors, "black");
+  }
+}
+
+.secondary__button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  @include abs.btn-idle();
+  padding-right: 60px;
+
+  font-size: map.get(abs.$font-sizes, "bd-m");
+  padding-left: 0;
+
+  &:hover {
+    background-color: map.get(abs.$colors, "primary-color");
+    .path__arrow {
+      background-color: map.get(abs.$colors, "black");
+    }
+  }
+
+  @include abs.bp("md") {
+    margin-left: 5%;
+  }
+}
+.path__arrow {
+  background-color: map.get(abs.$colors, "black");
+  font-size: 16px;
+  padding: 30px;
+
+  background-color: map.get(abs.$colors, "primary-color");
+
+  &:hover {
+    background-color: map.get(abs.$colors, "black");
+  }
+}

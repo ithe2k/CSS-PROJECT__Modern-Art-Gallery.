@@ -1,0 +1,9 @@
+/* px to rem function*/
+
+@use "sass:math";
+
+@function to-rem($px) {
+  @return math.div($px, 10) * 1rem;
+}
+
+

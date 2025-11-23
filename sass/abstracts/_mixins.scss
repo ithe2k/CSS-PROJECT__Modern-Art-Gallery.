@@ -1,0 +1,28 @@
+@use "sass:map";
+@use "./variables" as var;
+
+@mixin bp($size) {
+  @media (min-width: map.get(var.$breakpoints, $size)) {
+    @content;
+  }
+}
+
+@mixin btn-idle() {
+  display: inline-flex;
+  padding: 0px 0px 0px 25px;
+  align-items: center;
+  justify-content: space-between;
+  font-size: map.get(var.$font-sizes, "btn");
+  font-family: var.$hd-tpg;
+  letter-spacing: 3.64px;
+  font-weight: map.get(var.$fonts-weights, "medium");
+  color: map.get(var.$colors, "white");
+  background-color: map.get(var.$colors, "black");
+  text-decoration: none;
+  gap: 25px;
+}
+
+@mixin btn-hover() {
+  @include btn-idle();
+  background-color: map.get(var.$colors, "primary-color");
+}

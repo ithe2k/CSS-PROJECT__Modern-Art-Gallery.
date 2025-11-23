@@ -1,0 +1,118 @@
+@use "../abstracts/abstracts" as abs;
+@use "sass:map";
+
+header {
+  @include abs.bp("md") {
+    position: relative;
+    @include abs.bp("lg") {
+      background-image: linear-gradient(to right, #000000 450px, #ffffff 450px);
+      margin-bottom: 180px;
+    }
+  }
+  .hero__img {
+    .hero__image {
+      width: 100%;
+      height: 270px;
+      overflow: hidden;
+      display: block;
+      object-fit: cover;
+      @include abs.bp("md") {
+        width: 55%;
+        height: auto;
+      }
+      @include abs.bp("lg") {
+        width: 538px;
+        height: auto;
+        margin-left: 30%;
+      }
+    }
+  }
+}
+
+.hero-text {
+  padding: 0 16px;
+  @include abs.bp("md") {
+    display: flex;
+    flex-direction: column;
+    max-width: 50%;
+    position: absolute;
+    top: 120px;
+    left: 360px;
+  }
+  @include abs.bp("lg") {
+    flex-direction: row;
+    gap: 320px;
+    top: 190px;
+    left: 70px;
+  }
+  .secondary-text {
+    @include abs.bp("lg") {
+      width: 250px;
+      flex-shrink: 0;
+    }
+  }
+}
+.main-text h1 {
+  display: flex;
+  flex-direction: column;
+  line-height: map.get(abs.$line-h, "hd-m");
+  font-family: abs.$hd-tpg;
+  font-size: map.get(abs.$font-sizes, "hd-m");
+  font-weight: map.get(abs.$fonts-weights, "extrabold");
+  margin-top: 32px;
+  margin-bottom: 32px;
+  @include abs.bp("md") {
+    font-size: map.get(abs.$font-sizes, "hd-l");
+    line-height: map.get(abs.$line-h, "hd-l");
+  }
+  @include abs.bp("lg") {
+    width: max-content;
+    flex-shrink: 0;
+    color: map.get(abs.$colors, "white");
+    font-size: map.get(abs.$font-sizes, "hd-xl");
+    line-height: map.get(abs.$line-h, "hd-xl");
+  }
+}
+p {
+  color: map.get(abs.$colors, "grey");
+  padding-right: 50px;
+  font-family: abs.$body-tpg;
+  font-weight: map.get(abs.$fonts-weights, "light");
+  margin-bottom: 32px;
+
+  @include abs.bp("md") {
+    padding-right: 70px;
+    margin-bottom: 70px;
+  }
+  @include abs.bp("lg") {
+    margin-bottom: 40px;
+    padding-right: 0;
+    width: 140%;
+    font-size: map.get(abs.$font-sizes, "bd-m");
+  }
+}
+
+.location-header {
+  position: relative;
+  max-width: 100%;
+  height: 550px;
+  background-image: url(../../img/location-map.png);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: 340% 100%;
+  @include abs.bp("md") {
+    background-size: 165% 100%;
+    background-position: 50%;
+    height: 600px;
+  }
+
+  .pin {
+    position: absolute;
+    top: 37%;
+    left: 40%;
+    @include abs.bp("md") {
+      left: 45%;
+      top: 38%;
+    }
+  }
+}
