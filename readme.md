@@ -1,1 +1,1 @@
-Proyecto en HTML y Sass-CSS (landing)
+Proyecto en HTML y Sass-CSS (microsite)
