@@ -1,72 +1,63 @@
 @use "../abstracts/abstracts" as abs;
 @use "sass:map";
+@use "../abstracts/functions" as f;
 
 footer {
+  padding-top: f.to-rem(48);
+  padding-bottom: f.to-rem(48);
+  padding-left: f.to-rem(32);
   background-color: map.get(abs.$colors, "black");
-  color: map.get(abs.$colors, "white");
-  padding: 20px 32px;
-  padding-bottom: 48px;
-  position: relative;
   @include abs.bp("md") {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
-    align-items: center;
-    width: 100%;
+    align-items: flex-start;
+    padding-right: 5%;
+    padding-bottom: 0;
+   
   }
   .mg__icon {
-    margin-top: 48px;
-    margin-bottom: 15px;
-    padding-left: 10px;
-    @include abs.bp("md") {
-      height: 40px;
-      margin-bottom: 0;
-      margin-top: 0;
-    }
+    margin-bottom: f.to-rem(38);
   }
   p {
+    font-size: map.get(abs.$font-sizes, "bd-s");
     font-family: abs.$body-tpg;
     font-weight: map.get(abs.$fonts-weights, "light");
-    margin-bottom: 38px;
+    line-height: map.get(abs.$line-h, "bd-s");
     color: map.get(abs.$colors, "white");
-
-    @include abs.bp("md") {
-      width: 35%;
-      position: relative;
-      top: 45px;
+    width: 100%;
+    margin-bottom: f.to-rem(38);
+    @include abs.bp("md"){
+      width: 40%;
     }
   }
-  .__media {
+  .media {
     display: flex;
-    gap: 15px;
-
-    @include abs.bp("md") {
-      img {
-        width: 20px;
-      }
-    }
+    gap: f.to-rem(20);
   }
 }
 
-.footer-location {
+.footer-location{
+  padding: f.to-rem(48) f.to-rem(10);
   background-color: map.get(abs.$colors, "primary-color");
-  color: map.get(abs.$colors, "black");
-
-  font-family: abs.$body-tpg;
-  @include abs.bp("md") {
+  @include abs.bp('md'){
     display: flex;
-    align-items: center;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: f.to-rem(56) f.to-rem(39);
   }
-
-  p {
-    max-width: 85%;
-    color: map.get(abs.$colors, "black");
-    @include abs.bp("md") {
-      max-width: 100%;
-      padding-right: 0;
-    }
-  }
+p{
+  max-width:90%;
+  color: map.get(abs.$colors, "black");
+   font-weight: map.get(abs.$fonts-weights, "regular");
+   margin: f.to-rem(38) 0;
+   @include abs.bp('md'){
+    margin-top: 0;
+   }
 }
-.footer__media {
+.footer__media{
   display: flex;
-  gap: 15px;
+gap: f.to-rem(20);
+}
+
 }

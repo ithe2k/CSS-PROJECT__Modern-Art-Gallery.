@@ -16,10 +16,10 @@ $colors: (
 );
 
 $font-sizes: (
-  "hd-xl": f.to-rem(96),
-  "hd-l": f.to-rem(60),
-  "hd-m": f.to-rem(50),
-  "hd-s": f.to-rem(32),
+  "hd-xl": f.to-rem(90),
+  "hd-l": f.to-rem(70),
+  "hd-m": f.to-rem(55),
+  "hd-s": f.to-rem(36),
   "bd-m": f.to-rem(22),
   "bd-s": f.to-rem(18),
   "btn": f.to-rem(20),
@@ -27,11 +27,11 @@ $font-sizes: (
 );
 
 $fonts-weights: (
-  "light": 300,
+  "light": 200,
   "regular": 400,
   "medium": 500,
   "bold": 700,
-  "extrabold": 800,
+  "extra-bold": 800,
 );
 
 /*tipography*/
@@ -40,10 +40,10 @@ $body-tpg: "Outfit", sans-serif;
 
 /*line-spacing*/
 $line-h: (
-  "hd-xl": f.to-rem(88),
+  "hd-xl": f.to-rem(80),
   "hd-l": f.to-rem(65),
-  "hd-m": f.to-rem(45),
+  "hd-m": f.to-rem(55),
   "hd-s": f.to-rem(36),
   "bd-m": f.to-rem(32),
-  "bd-s": f.to-rem(20)
+  "bd-s": f.to-rem(28)
 );

@@ -1,118 +1,137 @@
 @use "../abstracts/abstracts" as abs;
 @use "sass:map";
+@use "../abstracts/functions" as f;
 
 header {
-  @include abs.bp("md") {
+  margin-bottom: f.to-rem(120);
+  @include abs.bp("sm") {
     position: relative;
     @include abs.bp("lg") {
-      background-image: linear-gradient(to right, #000000 450px, #ffffff 450px);
-      margin-bottom: 180px;
+      .bp-lg-black {
+        background-color: map.get(abs.$colors, "black");
+        position: absolute;
+        width: 33.3%;
+        height: 100%;
+        left: 0%;
+      }
     }
   }
-  .hero__img {
-    .hero__image {
-      width: 100%;
-      height: 270px;
-      overflow: hidden;
-      display: block;
+  .cut-img {
+    /* contenedor creado para recortar la imagen interior*/
+    position: relative;
+    max-width: 100%;
+    max-height: f.to-rem(470);
+    overflow: hidden;
+    margin-bottom: f.to-rem(32);
+    @include abs.bp("sm") {
+      max-height: none;
+      @include abs.bp("lg") {
+        left: 33.3%;
+        width: max-content;
+      }
+    }
+
+    img {
+      max-width: 100%;
+      max-height: 100%;
       object-fit: cover;
-      @include abs.bp("md") {
-        width: 55%;
-        height: auto;
+    }
+  }
+  .hero {
+    margin-left: f.to-rem(16);
+    margin-right: f.to-rem(16);
+    @include abs.bp("sm") {
+      position: absolute;
+      top: f.to-rem(145);
+      left: f.to-rem(375);
+    }
+    @include abs.bp("lg") {
+      display: flex;
+      gap: f.to-rem(270);
+      top: f.to-rem(170);
+      left: f.to-rem(65);
+      align-items: flex-start;
+    }
+    @include abs.bp("xl") {
+      left: f.to-rem(140);
+    }
+    @include abs.bp("xxl") {
+      left: f.to-rem(150);
+      gap: f.to-rem(500);
+    }
+
+    h1 {
+      display: flex;
+      flex-direction: column;
+      font-size: map.get(abs.$font-sizes, "hd-l");
+      font-family: abs.$hd-tpg;
+      font-weight: map.get(abs.$fonts-weights, "extra-bold");
+      line-height: map.get(abs.$line-h, "hd-l");
+      @include abs.bp("lg") {
+        font-size: map.get(abs.$font-sizes, "hd-xl");
+        line-height: map.get(abs.$line-h, "hd-xl");
+        width: max-content;
+        color: map.get(abs.$colors, "white");
+        margin: 0;
+      }
+    }
+    p {
+      font-size: map.get(abs.$font-sizes, "bd-s");
+      font-family: abs.$body-tpg;
+      font-weight: map.get(abs.$fonts-weights, "light");
+      line-height: map.get(abs.$line-h, "bd-s");
+      color: map.get(abs.$colors, "grey");
+      max-width: 95%;
+      margin-top: f.to-rem(30);
+      margin-bottom: f.to-rem(32);
+      @include abs.bp("sm") {
+        max-width: 85%;
+        margin-top: f.to-rem(48);
+        margin-bottom: f.to-rem(48);
       }
       @include abs.bp("lg") {
-        width: 538px;
-        height: auto;
-        margin-left: 30%;
+        font-size: map.get(abs.$font-sizes, "bd-m");
+        margin-top: 0%;
+        max-width: 100%;
+        margin-bottom: f.to-rem(64);
+      }
+      @include abs.bp("xl") {
+        max-width: 80%;
       }
     }
   }
 }
 
-.hero-text {
-  padding: 0 16px;
-  @include abs.bp("md") {
-    display: flex;
-    flex-direction: column;
-    max-width: 50%;
-    position: absolute;
-    top: 120px;
-    left: 360px;
-  }
-  @include abs.bp("lg") {
-    flex-direction: row;
-    gap: 320px;
-    top: 190px;
-    left: 70px;
-  }
-  .secondary-text {
-    @include abs.bp("lg") {
-      width: 250px;
-      flex-shrink: 0;
-    }
-  }
-}
-.main-text h1 {
-  display: flex;
-  flex-direction: column;
-  line-height: map.get(abs.$line-h, "hd-m");
-  font-family: abs.$hd-tpg;
-  font-size: map.get(abs.$font-sizes, "hd-m");
-  font-weight: map.get(abs.$fonts-weights, "extrabold");
-  margin-top: 32px;
-  margin-bottom: 32px;
-  @include abs.bp("md") {
-    font-size: map.get(abs.$font-sizes, "hd-l");
-    line-height: map.get(abs.$line-h, "hd-l");
-  }
-  @include abs.bp("lg") {
-    width: max-content;
-    flex-shrink: 0;
-    color: map.get(abs.$colors, "white");
-    font-size: map.get(abs.$font-sizes, "hd-xl");
-    line-height: map.get(abs.$line-h, "hd-xl");
-  }
-}
-p {
-  color: map.get(abs.$colors, "grey");
-  padding-right: 50px;
-  font-family: abs.$body-tpg;
-  font-weight: map.get(abs.$fonts-weights, "light");
-  margin-bottom: 32px;
-
-  @include abs.bp("md") {
-    padding-right: 70px;
-    margin-bottom: 70px;
-  }
-  @include abs.bp("lg") {
-    margin-bottom: 40px;
-    padding-right: 0;
-    width: 140%;
-    font-size: map.get(abs.$font-sizes, "bd-m");
-  }
-}
+/*location*/
 
 .location-header {
+  margin-bottom: 0;
   position: relative;
-  max-width: 100%;
-  height: 550px;
-  background-image: url(../../img/location-map.png);
+  height: f.to-rem(550);
+  background: url(../../img/location-map.png);
   background-repeat: no-repeat;
-  background-position: 50% 50%;
-  background-size: 340% 100%;
+  background-size: cover;
+  background-position: 50% 40%;
   @include abs.bp("md") {
-    background-size: 165% 100%;
-    background-position: 50%;
-    height: 600px;
+    background-position: 50% 50%;
   }
+  @include abs.bp("lg") {
+    background-position: 55% 65%;
+  }
+  @include abs.bp("xl") {
+    background-position: 60% 65%;
+  }
+  @include abs.bp("xxl") {
+    background-position: 65% 65%;
+  }
+
 
   .pin {
     position: absolute;
-    top: 37%;
+    top: 40%;
     left: 40%;
-    @include abs.bp("md") {
+    @include abs.bp("sm") {
       left: 45%;
-      top: 38%;
     }
   }
 }
